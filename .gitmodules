@@ -1,0 +1,3 @@
+[submodule "pybluez"]
+	path = pybluez
+	url = https://github.com/Blucky87/pybluez.git
