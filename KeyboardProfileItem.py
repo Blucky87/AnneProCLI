@@ -12,10 +12,10 @@ class KeyboardProfileItem(object):
     def KeyboardProfileItem(self, id: int, label: str):
         self.id = id
         self.label = label
-        self.keyboard_colors_list = list()
+        self.keyboard_colors_list = bytearray()
 
         for i in range(0, 70):
-            self.keyboard_colors_list.append(b'0xFFFFFF')
+            self.keyboard_colors_list.append(0xFFFFFF)
 
         KeyboardKey.init_keyboard_profile(self)
 
@@ -98,7 +98,7 @@ class KeyboardProfileItem(object):
         self.sync_profile_phase1(gatt)
 
     def sync_profile_phase_1(self, gatt):
-        lighting_meta_data = [0x09, 0xD7, 0x03]
+        lighting_meta_data = bytes([0x09, 0xD7, 0x03])
         light_data = self.generate_keyboard_backlight_data()
 
         ######## KEYBOARD WRITER line 190+
